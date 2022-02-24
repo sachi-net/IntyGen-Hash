@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <Authors>Sachintha Silva</Authors>
+    <Company>Sachi-Home</Company>
+    <Product>IntyGen</Product>
+    <Description>Hash signature utility</Description>
+    <Copyright>Sachi-Home</Copyright>
+    <RepositoryType>Class Library</RepositoryType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\Sachintha Silva\source\repos\IntyGenApp\HashGeneratorLibrary\HashGeneratorLibrary.xml</DocumentationFile>
+  </PropertyGroup>
+
+</Project>

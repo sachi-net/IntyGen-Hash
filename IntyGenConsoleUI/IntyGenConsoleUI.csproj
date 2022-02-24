@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <Authors>Sachintha Silva</Authors>
+    <Company>Sachintha-Home</Company>
+    <Product>IntyGen</Product>
+    <Description>Hash processing utility</Description>
+    <Copyright>Sachi-Home</Copyright>
+    <RepositoryType>Console Application</RepositoryType>
+    <AssemblyName>IntyGen Console</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HashGeneratorLibrary\HashGeneratorLibrary.csproj" />
+  </ItemGroup>
+
+</Project>

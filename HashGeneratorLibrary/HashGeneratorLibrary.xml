@@ -1,0 +1,289 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HashGeneratorLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:HashGeneratorLibrary.ICryptoProcessor">
+            <summary>
+            Cryptographic service for generating hashes or comparing intergrities.
+            </summary>
+        </member>
+        <member name="M:HashGeneratorLibrary.ICryptoProcessor.CalculateHash(System.Byte[],System.Boolean)">
+            <summary>
+            Calculates the hash from given buffer array.
+            </summary>
+            <param name="buffer">Data buffer array.</param>
+            <param name="useByteSeperator">Whether to group the hash string by bytes with dashes.</param>
+            <returns>Calculated hash string.</returns>
+            <exception cref="T:System.ArgumentNullException">Throws when buffer is not set.</exception>
+        </member>
+        <member name="M:HashGeneratorLibrary.ICryptoProcessor.CalculateHash(System.IO.Stream,System.Boolean)">
+            <summary>
+            Calculates the hash from given data stream.
+            </summary>
+            <param name="dataStream">Data stream.</param>
+            <param name="useByteSeperator">Whether to group the hash string by bytes with dashes.</param>
+            <returns>Calculated hash string.</returns>
+            <exception cref="T:System.ArgumentNullException">Throws when dataStream is not set.</exception>
+        </member>
+        <member name="M:HashGeneratorLibrary.ICryptoProcessor.CalculateHash``1(HashGeneratorLibrary.Models.CryptoData{``0},System.Boolean)">
+            <summary>
+            Calculates the hash from given CryptoData object.
+            </summary>
+            <typeparam name="T">T is byte[] or Stream.</typeparam>
+            <param name="data">Crypto data object.</param>
+            <param name="useByteSeperator">Whether to group the hash string by bytes with dashes.</param>
+            <returns>Calculated hash stored in CryptoData object.</returns>
+            <exception cref="T:System.ArgumentNullException">Throws when CryptoData is not set.</exception>
+            <exception cref="T:System.NullReferenceException">Throws when Content of CryptoData is not set.</exception>
+        </member>
+        <member name="M:HashGeneratorLibrary.ICryptoProcessor.CalculateHash``1(System.Collections.Generic.IEnumerable{HashGeneratorLibrary.Models.CryptoData{``0}},System.Boolean)">
+            <summary>
+            Calculates the hashes for each item in given collection of CryptoData objects.
+            </summary>
+            <typeparam name="T">T is byte[] or Stream.</typeparam>
+            <param name="dataCollection">Collection of CryptoData objects. T is byte[] or Stream.</param>
+            <param name="useByteSeperator">Whether to group the hash string by bytes with dashes.</param>
+            <returns>Update and return the collection of CryptoData with calculated hashes.</returns>
+            <exception cref="T:System.ArgumentNullException">Throws when CryptoData collection is not set.</exception>
+            <exception cref="T:System.NullReferenceException">Throws when Content of any CryptoData item in the collection is not set.</exception>
+        </member>
+        <member name="M:HashGeneratorLibrary.ICryptoProcessor.Compare(System.String,System.IO.Stream)">
+            <summary>
+            Compare the stream data integrity against the given checksum.
+            </summary>
+            <param name="hash">Checksum string without group seperators.</param>
+            <param name="dataStream">Data stream.</param>
+            <returns>Return true if the stream data matches with given checksum.</returns>
+            <exception cref="T:System.ArgumentNullException">Throws when hash or datatStream is not set.</exception>
+        </member>
+        <member name="M:HashGeneratorLibrary.ICryptoProcessor.Compare(System.String,System.Byte[])">
+            <summary>
+            Compare the buffer integrity against the given checksum.
+            </summary>
+            <param name="hash">Checksum string without group seperators.</param>
+            <param name="buffer">Data buffer array.</param>
+            <returns>Return true if the stream data matches with given checksum.</returns>
+            <exception cref="T:System.ArgumentNullException">Throws when hash or buffer is not set.</exception>
+        </member>
+        <member name="T:HashGeneratorLibrary.MD5Processor">
+            <summary>
+            MD5 cryptographic service for generating hashes or comparing intergrities.
+            </summary>
+        </member>
+        <member name="M:HashGeneratorLibrary.MD5Processor.CalculateHash(System.Byte[],System.Boolean)">
+            <summary>
+            Calculates the MD5 hash from given buffer array.
+            </summary>
+            <param name="buffer">Data buffer array.</param>
+            <param name="useByteSeperator">Whether to group the hash string by bytes with dashes.</param>
+            <returns>Calculated MD5 hash string.</returns>
+            <exception cref="T:System.ArgumentNullException">Throws when buffer is not set.</exception>
+        </member>
+        <member name="M:HashGeneratorLibrary.MD5Processor.CalculateHash(System.IO.Stream,System.Boolean)">
+            <summary>
+            Calculates the MD5 hash from given data stream.
+            </summary>
+            <param name="dataStream">Data stream.</param>
+            <param name="useByteSeperator">Whether to group the hash string by bytes with dashes.</param>
+            <returns>Calculated MD5 hash string.</returns>
+            <exception cref="T:System.ArgumentNullException">Throws when dataStream is not set.</exception>
+        </member>
+        <member name="M:HashGeneratorLibrary.MD5Processor.CalculateHash``1(HashGeneratorLibrary.Models.CryptoData{``0},System.Boolean)">
+            <summary>
+            Calculates the MD5 hash from given CryptoData object.
+            </summary>
+            <typeparam name="T">T is byte[] or Stream.</typeparam>
+            <param name="data">Crypto data object.</param>
+            <param name="useByteSeperator">Whether to group the hash string by bytes with dashes.</param>
+            <returns>Calculated MD5 hash stored in CryptoData object.</returns>
+            <exception cref="T:System.ArgumentNullException">Throws when CryptoData is not set.</exception>
+            <exception cref="T:System.NullReferenceException">Throws when Content of CryptoData is not set.</exception>
+        </member>
+        <member name="M:HashGeneratorLibrary.MD5Processor.CalculateHash``1(System.Collections.Generic.IEnumerable{HashGeneratorLibrary.Models.CryptoData{``0}},System.Boolean)">
+            <summary>
+            Calculates the MD5 hashes for each item in given collection of CryptoData objects.
+            </summary>
+            <typeparam name="T">T is byte[] or Stream.</typeparam>
+            <param name="dataCollection">Collection of CryptoData objects. T is byte[] or Stream.</param>
+            <param name="useByteSeperator">Whether to group the hash string by bytes with dashes.</param>
+            <returns>Update and return the collection of CryptoData with calculated MD5 hashes.</returns>
+            <exception cref="T:System.ArgumentNullException">Throws when CryptoData collection is not set.</exception>
+            <exception cref="T:System.NullReferenceException">Throws when Content of any CryptoData item in the collection is not set.</exception>
+        </member>
+        <member name="M:HashGeneratorLibrary.MD5Processor.Compare(System.String,System.IO.Stream)">
+            <summary>
+            Compare the stream data integrity against the given MD5 checksum.
+            </summary>
+            <param name="hash">MD5 checksum string without group seperators.</param>
+            <param name="dataStream">Data stream.</param>
+            <returns>Return true if the stream data matches with given MD5 checksum.</returns>
+            <exception cref="T:System.ArgumentNullException">Throws when MD5 hash or datatStream is not set.</exception>
+        </member>
+        <member name="M:HashGeneratorLibrary.MD5Processor.Compare(System.String,System.Byte[])">
+            <summary>
+            Compare the buffer integrity against the given MD5 checksum.
+            </summary>
+            <param name="hash">MD5 checksum string without group seperators.</param>
+            <param name="buffer">Data buffer array.</param>
+            <returns>Return true if the stream data matches with given MD5 checksum.</returns>
+            <exception cref="T:System.ArgumentNullException">Throws when MD5 hash or buffer is not set.</exception>
+        </member>
+        <member name="T:HashGeneratorLibrary.Models.CryptoData`1">
+            <summary>
+            Crypto Data object with identifer and stream or buffer content.
+            </summary>
+        </member>
+        <member name="P:HashGeneratorLibrary.Models.CryptoData`1.DataKey">
+            <summary>
+            Unique key value for data stream or buffer identifier.
+            </summary>
+        </member>
+        <member name="P:HashGeneratorLibrary.Models.CryptoData`1.Hash">
+            <summary>
+            Hash value calculated for the Crypto Data content.
+            </summary>
+        </member>
+        <member name="P:HashGeneratorLibrary.Models.CryptoData`1.Content">
+            <summary>
+            Data content to calculate hash signature. T is byte[] or Stream.
+            </summary>
+        </member>
+        <member name="M:HashGeneratorLibrary.Models.CryptoData`1.#ctor(System.String,`0)">
+            <summary>
+            Initialize Crypto Data object with content type T.
+            </summary>
+            <param name="dataKey">Data key identifier.</param>
+            <param name="content">Data content. T is byte[] or Stream.</param>
+            <exception cref="T:System.ArgumentNullException">Throws when dataKey and content is not set.</exception>
+            <exception cref="T:System.TypeAccessException">Throws when type T is not byte[] or Stream.</exception>
+        </member>
+        <member name="T:HashGeneratorLibrary.SHA1Processor">
+            <summary>
+            SHA1 cryptographic service for generating hashes or comparing intergrities.
+            </summary>
+        </member>
+        <member name="M:HashGeneratorLibrary.SHA1Processor.CalculateHash(System.Byte[],System.Boolean)">
+            <summary>
+            Calculates the SHA1 hash from given buffer array.
+            </summary>
+            <param name="buffer">Data buffer array.</param>
+            <param name="useByteSeperator">Whether to group the hash string by bytes with dashes.</param>
+            <returns>Calculated SHA1 hash string.</returns>
+            <exception cref="T:System.ArgumentNullException">Throws when buffer is not set.</exception>
+        </member>
+        <member name="M:HashGeneratorLibrary.SHA1Processor.CalculateHash(System.IO.Stream,System.Boolean)">
+            <summary>
+            Calculates the SHA1 hash from given data stream.
+            </summary>
+            <param name="dataStream">Data stream.</param>
+            <param name="useByteSeperator">Whether to group the hash string by bytes with dashes.</param>
+            <returns>Calculated SHA1 hash string.</returns>
+            <exception cref="T:System.ArgumentNullException">Throws when dataStream is not set.</exception>
+        </member>
+        <member name="M:HashGeneratorLibrary.SHA1Processor.CalculateHash``1(HashGeneratorLibrary.Models.CryptoData{``0},System.Boolean)">
+            <summary>
+            Calculates the SHA1 hash from given CryptoData object.
+            </summary>
+            <typeparam name="T">T is byte[] or Stream.</typeparam>
+            <param name="data">Crypto data object.</param>
+            <param name="useByteSeperator">Whether to group the hash string by bytes with dashes.</param>
+            <returns>Calculated SHA1 hash stored in CryptoData object.</returns>
+            <exception cref="T:System.ArgumentNullException">Throws when CryptoData is not set.</exception>
+            <exception cref="T:System.NullReferenceException">Throws when Content of CryptoData is not set.</exception>
+        </member>
+        <member name="M:HashGeneratorLibrary.SHA1Processor.CalculateHash``1(System.Collections.Generic.IEnumerable{HashGeneratorLibrary.Models.CryptoData{``0}},System.Boolean)">
+            <summary>
+            Calculates the SHA1 hashes for each item in given collection of CryptoData objects.
+            </summary>
+            <typeparam name="T">T is byte[] or Stream.</typeparam>
+            <param name="dataCollection">Collection of CryptoData objects. T is byte[] or Stream.</param>
+            <param name="useByteSeperator">Whether to group the hash string by bytes with dashes.</param>
+            <returns>Update and return the collection of CryptoData with calculated SHA1 hashes.</returns>
+            <exception cref="T:System.ArgumentNullException">Throws when CryptoData collection is not set.</exception>
+            <exception cref="T:System.NullReferenceException">Throws when Content of any CryptoData item in the collection is not set.</exception>
+        </member>
+        <member name="M:HashGeneratorLibrary.SHA1Processor.Compare(System.String,System.IO.Stream)">
+            <summary>
+            Compare the stream data integrity against the given SHA1 checksum.
+            </summary>
+            <param name="hash">SHA1 checksum string without group seperators.</param>
+            <param name="dataStream">Data stream.</param>
+            <returns>Return true if the stream data matches with given SHA1 checksum.</returns>
+            <exception cref="T:System.ArgumentNullException">Throws when SHA1 hash or datatStream is not set.</exception>
+        </member>
+        <member name="M:HashGeneratorLibrary.SHA1Processor.Compare(System.String,System.Byte[])">
+            <summary>
+            Compare the buffer integrity against the given SHA1 checksum.
+            </summary>
+            <param name="hash">SHA1 checksum string without group seperators.</param>
+            <param name="buffer">Data buffer array.</param>
+            <returns>Return true if the stream data matches with given SHA1 checksum.</returns>
+            <exception cref="T:System.ArgumentNullException">Throws when SHA1 hash or buffer is not set.</exception>
+        </member>
+        <member name="T:HashGeneratorLibrary.SHA256Processor">
+            <summary>
+            SHA256 cryptographic service for generating hashes or comparing intergrities.
+            </summary>
+        </member>
+        <member name="M:HashGeneratorLibrary.SHA256Processor.CalculateHash(System.Byte[],System.Boolean)">
+            <summary>
+            Calculates the SHA256 hash from given buffer array.
+            </summary>
+            <param name="buffer">Data buffer array.</param>
+            <param name="useByteSeperator">Whether to group the hash string by bytes with dashes.</param>
+            <returns>Calculated SHA256 hash string.</returns>
+            <exception cref="T:System.ArgumentNullException">Throws when buffer is not set.</exception>
+        </member>
+        <member name="M:HashGeneratorLibrary.SHA256Processor.CalculateHash(System.IO.Stream,System.Boolean)">
+            <summary>
+            Calculates the SHA256 hash from given data stream.
+            </summary>
+            <param name="dataStream">Data stream.</param>
+            <param name="useByteSeperator">Whether to group the hash string by bytes with dashes.</param>
+            <returns>Calculated SHA256 hash string.</returns>
+            <exception cref="T:System.ArgumentNullException">Throws when dataStream is not set.</exception>
+        </member>
+        <member name="M:HashGeneratorLibrary.SHA256Processor.CalculateHash``1(HashGeneratorLibrary.Models.CryptoData{``0},System.Boolean)">
+            <summary>
+            Calculates the SHA256 hash from given CryptoData object.
+            </summary>
+            <typeparam name="T">T is byte[] or Stream.</typeparam>
+            <param name="data">Crypto data object.</param>
+            <param name="useByteSeperator">Whether to group the hash string by bytes with dashes.</param>
+            <returns>Calculated SHA256 hash stored in CryptoData object.</returns>
+            <exception cref="T:System.ArgumentNullException">Throws when CryptoData is not set.</exception>
+            <exception cref="T:System.NullReferenceException">Throws when Content of CryptoData is not set.</exception>
+        </member>
+        <member name="M:HashGeneratorLibrary.SHA256Processor.CalculateHash``1(System.Collections.Generic.IEnumerable{HashGeneratorLibrary.Models.CryptoData{``0}},System.Boolean)">
+            <summary>
+            Calculates the SHA256 hashes for each item in given collection of CryptoData objects.
+            </summary>
+            <typeparam name="T">T is byte[] or Stream.</typeparam>
+            <param name="dataCollection">Collection of CryptoData objects. T is byte[] or Stream.</param>
+            <param name="useByteSeperator">Whether to group the hash string by bytes with dashes.</param>
+            <returns>Update and return the collection of CryptoData with calculated SHA256 hashes.</returns>
+            <exception cref="T:System.ArgumentNullException">Throws when CryptoData collection is not set.</exception>
+            <exception cref="T:System.NullReferenceException">Throws when Content of any CryptoData item in the collection is not set.</exception>
+        </member>
+        <member name="M:HashGeneratorLibrary.SHA256Processor.Compare(System.String,System.IO.Stream)">
+            <summary>
+            Compare the stream data integrity against the given SHA256 checksum.
+            </summary>
+            <param name="hash">SHA256 checksum string without group seperators.</param>
+            <param name="dataStream">Data stream.</param>
+            <returns>Return true if the stream data matches with given SHA256 checksum.</returns>
+            <exception cref="T:System.ArgumentNullException">Throws when SHA256 hash or datatStream is not set.</exception>
+        </member>
+        <member name="M:HashGeneratorLibrary.SHA256Processor.Compare(System.String,System.Byte[])">
+            <summary>
+            Compare the buffer integrity against the given SHA256 checksum.
+            </summary>
+            <param name="hash">SHA256 checksum string without group seperators.</param>
+            <param name="buffer">Data buffer array.</param>
+            <returns>Return true if the stream data matches with given SHA256 checksum.</returns>
+            <exception cref="T:System.ArgumentNullException">Throws when SHA256 hash or buffer is not set.</exception>
+        </member>
+    </members>
+</doc>
