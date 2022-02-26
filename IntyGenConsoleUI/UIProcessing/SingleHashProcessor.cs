@@ -55,7 +55,7 @@ namespace IntyGenConsoleUI.UIProcessing
             try
             {
                 processor = HashProcessorController.Initialize(processorType);
-                return await processor.CalculateHash(fileStream, useByteSeperator: false);
+                return await processor.CalculateHash(fileStream, useByteSeperator: true);
             }
             catch (Exception)
             {
