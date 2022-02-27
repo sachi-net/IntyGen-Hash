@@ -77,7 +77,7 @@ namespace IntyGenWinUI.UILayouts
             this.txtPath.Name = "txtPath";
             this.txtPath.ReadOnly = true;
             this.txtPath.Size = new System.Drawing.Size(318, 23);
-            this.txtPath.TabIndex = 1;
+            this.txtPath.TabIndex = 8;
             // 
             // txtOpen
             // 
@@ -87,6 +87,7 @@ namespace IntyGenWinUI.UILayouts
             this.txtOpen.TabIndex = 2;
             this.txtOpen.Text = "Open...";
             this.txtOpen.UseVisualStyleBackColor = true;
+            this.txtOpen.Click += new System.EventHandler(this.txtOpen_Click);
             // 
             // cmbHashType
             // 
@@ -94,7 +95,7 @@ namespace IntyGenWinUI.UILayouts
             this.cmbHashType.Location = new System.Drawing.Point(36, 106);
             this.cmbHashType.Name = "cmbHashType";
             this.cmbHashType.Size = new System.Drawing.Size(121, 23);
-            this.cmbHashType.TabIndex = 3;
+            this.cmbHashType.TabIndex = 1;
             // 
             // label3
             // 
@@ -134,7 +135,7 @@ namespace IntyGenWinUI.UILayouts
             this.chkEnableSeperator.OnBackColor = System.Drawing.Color.DodgerBlue;
             this.chkEnableSeperator.OnToggleColor = System.Drawing.Color.WhiteSmoke;
             this.chkEnableSeperator.Size = new System.Drawing.Size(45, 22);
-            this.chkEnableSeperator.TabIndex = 6;
+            this.chkEnableSeperator.TabIndex = 3;
             this.chkEnableSeperator.UseVisualStyleBackColor = true;
             this.chkEnableSeperator.CheckedChanged += new System.EventHandler(this.chkEnableSeperator_CheckedChanged);
             // 
@@ -175,9 +176,10 @@ namespace IntyGenWinUI.UILayouts
             this.btnCopyHash.Location = new System.Drawing.Point(415, 32);
             this.btnCopyHash.Name = "btnCopyHash";
             this.btnCopyHash.Size = new System.Drawing.Size(75, 23);
-            this.btnCopyHash.TabIndex = 1;
+            this.btnCopyHash.TabIndex = 6;
             this.btnCopyHash.Text = "Copy";
             this.btnCopyHash.UseVisualStyleBackColor = true;
+            this.btnCopyHash.Click += new System.EventHandler(this.btnCopyHash_Click);
             // 
             // txtHashResult
             // 
@@ -185,8 +187,8 @@ namespace IntyGenWinUI.UILayouts
             this.txtHashResult.Name = "txtHashResult";
             this.txtHashResult.ReadOnly = true;
             this.txtHashResult.Size = new System.Drawing.Size(387, 23);
-            this.txtHashResult.TabIndex = 0;
-            this.txtHashResult.Text = "XXXXXXXXXX";
+            this.txtHashResult.TabIndex = 7;
+            this.txtHashResult.TextChanged += new System.EventHandler(this.txtHashResult_TextChanged);
             // 
             // label6
             // 
@@ -202,9 +204,10 @@ namespace IntyGenWinUI.UILayouts
             this.btnGenerate.Location = new System.Drawing.Point(35, 195);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(75, 23);
-            this.btnGenerate.TabIndex = 2;
+            this.btnGenerate.TabIndex = 4;
             this.btnGenerate.Text = "Generate";
             this.btnGenerate.UseVisualStyleBackColor = true;
+            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
             // 
             // btnClear
             // 
@@ -212,9 +215,10 @@ namespace IntyGenWinUI.UILayouts
             this.btnClear.Location = new System.Drawing.Point(116, 195);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
-            this.btnClear.TabIndex = 2;
+            this.btnClear.TabIndex = 5;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // SingleHashUILayout
             // 

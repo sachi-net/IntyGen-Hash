@@ -30,6 +30,7 @@ namespace IntyGenWinUI.UILayouts
         private void InitializeComponent()
         {
             this.pnlResult = new System.Windows.Forms.Panel();
+            this.btnExport = new System.Windows.Forms.Button();
             this.lstHashResult = new System.Windows.Forms.ListBox();
             this.lblHashSummary = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -53,6 +54,7 @@ namespace IntyGenWinUI.UILayouts
             // 
             // pnlResult
             // 
+            this.pnlResult.Controls.Add(this.btnExport);
             this.pnlResult.Controls.Add(this.lstHashResult);
             this.pnlResult.Controls.Add(this.lblHashSummary);
             this.pnlResult.Controls.Add(this.label6);
@@ -62,19 +64,30 @@ namespace IntyGenWinUI.UILayouts
             this.pnlResult.TabIndex = 22;
             this.pnlResult.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlResult_Paint);
             // 
+            // btnExport
+            // 
+            this.btnExport.Location = new System.Drawing.Point(567, 222);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(75, 23);
+            this.btnExport.TabIndex = 7;
+            this.btnExport.Text = "Export...";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
             // lstHashResult
             // 
             this.lstHashResult.FormattingEnabled = true;
             this.lstHashResult.ItemHeight = 15;
             this.lstHashResult.Location = new System.Drawing.Point(22, 32);
             this.lstHashResult.Name = "lstHashResult";
-            this.lstHashResult.Size = new System.Drawing.Size(620, 199);
+            this.lstHashResult.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.lstHashResult.Size = new System.Drawing.Size(620, 184);
             this.lstHashResult.TabIndex = 6;
             // 
             // lblHashSummary
             // 
             this.lblHashSummary.AutoSize = true;
-            this.lblHashSummary.Location = new System.Drawing.Point(22, 235);
+            this.lblHashSummary.Location = new System.Drawing.Point(22, 219);
             this.lblHashSummary.Name = "lblHashSummary";
             this.lblHashSummary.Size = new System.Drawing.Size(85, 15);
             this.lblHashSummary.TabIndex = 5;
@@ -111,7 +124,7 @@ namespace IntyGenWinUI.UILayouts
             this.chkEnableSeperator.OnBackColor = System.Drawing.Color.DodgerBlue;
             this.chkEnableSeperator.OnToggleColor = System.Drawing.Color.WhiteSmoke;
             this.chkEnableSeperator.Size = new System.Drawing.Size(45, 22);
-            this.chkEnableSeperator.TabIndex = 20;
+            this.chkEnableSeperator.TabIndex = 3;
             this.chkEnableSeperator.UseVisualStyleBackColor = true;
             this.chkEnableSeperator.CheckedChanged += new System.EventHandler(this.chkEnableSeperator_CheckedChanged);
             // 
@@ -158,7 +171,7 @@ namespace IntyGenWinUI.UILayouts
             this.cmbHashType.Location = new System.Drawing.Point(36, 106);
             this.cmbHashType.Name = "cmbHashType";
             this.cmbHashType.Size = new System.Drawing.Size(121, 23);
-            this.cmbHashType.TabIndex = 15;
+            this.cmbHashType.TabIndex = 1;
             // 
             // btnClear
             // 
@@ -166,27 +179,30 @@ namespace IntyGenWinUI.UILayouts
             this.btnClear.Location = new System.Drawing.Point(116, 195);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
-            this.btnClear.TabIndex = 12;
+            this.btnClear.TabIndex = 6;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnGenerate
             // 
             this.btnGenerate.Location = new System.Drawing.Point(35, 195);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(75, 23);
-            this.btnGenerate.TabIndex = 13;
+            this.btnGenerate.TabIndex = 5;
             this.btnGenerate.Text = "Generate";
             this.btnGenerate.UseVisualStyleBackColor = true;
+            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
             // 
             // txtOpen
             // 
             this.txtOpen.Location = new System.Drawing.Point(487, 106);
             this.txtOpen.Name = "txtOpen";
             this.txtOpen.Size = new System.Drawing.Size(75, 23);
-            this.txtOpen.TabIndex = 14;
+            this.txtOpen.TabIndex = 2;
             this.txtOpen.Text = "Open...";
             this.txtOpen.UseVisualStyleBackColor = true;
+            this.txtOpen.Click += new System.EventHandler(this.txtOpen_Click);
             // 
             // txtPath
             // 
@@ -195,7 +211,7 @@ namespace IntyGenWinUI.UILayouts
             this.txtPath.Name = "txtPath";
             this.txtPath.ReadOnly = true;
             this.txtPath.Size = new System.Drawing.Size(318, 23);
-            this.txtPath.TabIndex = 11;
+            this.txtPath.TabIndex = 8;
             // 
             // label2
             // 
@@ -238,7 +254,7 @@ namespace IntyGenWinUI.UILayouts
             this.chkSkipLargeFiles.OnBackColor = System.Drawing.Color.DodgerBlue;
             this.chkSkipLargeFiles.OnToggleColor = System.Drawing.Color.WhiteSmoke;
             this.chkSkipLargeFiles.Size = new System.Drawing.Size(45, 22);
-            this.chkSkipLargeFiles.TabIndex = 20;
+            this.chkSkipLargeFiles.TabIndex = 4;
             this.chkSkipLargeFiles.UseVisualStyleBackColor = true;
             // 
             // MultiHashUILayout
@@ -293,5 +309,6 @@ namespace IntyGenWinUI.UILayouts
         private CustomControls.Toggle chkSkipLargeFiles;
         private System.Windows.Forms.ListBox lstHashResult;
         private System.Windows.Forms.Label lblHashSummary;
+        private System.Windows.Forms.Button btnExport;
     }
 }

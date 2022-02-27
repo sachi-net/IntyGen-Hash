@@ -53,7 +53,7 @@ namespace IntyGenWinUI.UILayouts
             this.pnlResult.Controls.Add(this.label6);
             this.pnlResult.Location = new System.Drawing.Point(35, 237);
             this.pnlResult.Name = "pnlResult";
-            this.pnlResult.Size = new System.Drawing.Size(533, 124);
+            this.pnlResult.Size = new System.Drawing.Size(533, 150);
             this.pnlResult.TabIndex = 22;
             this.pnlResult.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlResult_Paint);
             // 
@@ -63,7 +63,7 @@ namespace IntyGenWinUI.UILayouts
             this.txtIntegrityResult.Multiline = true;
             this.txtIntegrityResult.Name = "txtIntegrityResult";
             this.txtIntegrityResult.ReadOnly = true;
-            this.txtIntegrityResult.Size = new System.Drawing.Size(488, 60);
+            this.txtIntegrityResult.Size = new System.Drawing.Size(488, 91);
             this.txtIntegrityResult.TabIndex = 6;
             // 
             // label6
@@ -121,6 +121,7 @@ namespace IntyGenWinUI.UILayouts
             this.btnClear.TabIndex = 12;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnGenerate
             // 
@@ -130,6 +131,7 @@ namespace IntyGenWinUI.UILayouts
             this.btnGenerate.TabIndex = 13;
             this.btnGenerate.Text = "Generate";
             this.btnGenerate.UseVisualStyleBackColor = true;
+            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
             // 
             // txtOpen
             // 
@@ -139,6 +141,7 @@ namespace IntyGenWinUI.UILayouts
             this.txtOpen.TabIndex = 14;
             this.txtOpen.Text = "Open...";
             this.txtOpen.UseVisualStyleBackColor = true;
+            this.txtOpen.Click += new System.EventHandler(this.txtOpen_Click);
             // 
             // txtPath
             // 
