@@ -107,7 +107,7 @@ namespace IntyGenWinUI.UILayouts
             this.lblSeperatorPreview.AutoSize = true;
             this.lblSeperatorPreview.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblSeperatorPreview.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.lblSeperatorPreview.Location = new System.Drawing.Point(214, 164);
+            this.lblSeperatorPreview.Location = new System.Drawing.Point(249, 164);
             this.lblSeperatorPreview.Name = "lblSeperatorPreview";
             this.lblSeperatorPreview.Size = new System.Drawing.Size(83, 12);
             this.lblSeperatorPreview.TabIndex = 21;
@@ -116,7 +116,7 @@ namespace IntyGenWinUI.UILayouts
             // chkEnableSeperator
             // 
             this.chkEnableSeperator.AutoSize = true;
-            this.chkEnableSeperator.Location = new System.Drawing.Point(163, 159);
+            this.chkEnableSeperator.Location = new System.Drawing.Point(198, 159);
             this.chkEnableSeperator.MinimumSize = new System.Drawing.Size(45, 22);
             this.chkEnableSeperator.Name = "chkEnableSeperator";
             this.chkEnableSeperator.OffBackColor = System.Drawing.Color.DarkGray;
@@ -246,7 +246,7 @@ namespace IntyGenWinUI.UILayouts
             // chkSkipLargeFiles
             // 
             this.chkSkipLargeFiles.AutoSize = true;
-            this.chkSkipLargeFiles.Location = new System.Drawing.Point(486, 159);
+            this.chkSkipLargeFiles.Location = new System.Drawing.Point(514, 159);
             this.chkSkipLargeFiles.MinimumSize = new System.Drawing.Size(45, 22);
             this.chkSkipLargeFiles.Name = "chkSkipLargeFiles";
             this.chkSkipLargeFiles.OffBackColor = System.Drawing.Color.DarkGray;
