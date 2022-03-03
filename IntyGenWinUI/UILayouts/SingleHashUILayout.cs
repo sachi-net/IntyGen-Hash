@@ -108,6 +108,7 @@ namespace IntyGenWinUI.UILayouts
                 cmbHashType.SelectedIndex = 0;
             ValidationMessage.Clear(lblValidationMessage);
             chkEnableSeperator.Checked = false;
+            progressBar.Style = ProgressBarStyle.Blocks;
         }
 
         private async Task Generate()
@@ -126,7 +127,9 @@ namespace IntyGenWinUI.UILayouts
             }
 
             processor = HashProcessor.Initialize(cmbHashType.SelectedItem.ToString());
+            progressBar.Style = ProgressBarStyle.Marquee;
             var result = await processor.CalculateHash(File.OpenRead(file.FullName), chkEnableSeperator.Checked);
+            progressBar.Style = ProgressBarStyle.Blocks;
             txtHashResult.Text = result;
         }
 
