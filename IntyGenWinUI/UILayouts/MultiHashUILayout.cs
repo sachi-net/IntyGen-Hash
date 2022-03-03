@@ -79,6 +79,7 @@ namespace IntyGenWinUI.UILayouts
             lstHashResult.Items.Clear();
             btnExport.Visible = false;
             ValidationMessage.Clear(lblHashSummary);
+            progressBar.Value = 0;
         }
 
         private void OpenDirectory()
@@ -126,8 +127,9 @@ namespace IntyGenWinUI.UILayouts
                     fileData.Add(data);
                 }
 
+                Progress<int> progress = new(percentage => { progressBar.Value = percentage; });
                 processor = HashProcessor.Initialize(cmbHashType.SelectedItem.ToString());
-                var result = await processor.CalculateHash(fileData, chkEnableSeperator.Checked);
+                var result = await processor.CalculateHash(fileData, progress, chkEnableSeperator.Checked);
 
                 foreach(var data in result)
                 {

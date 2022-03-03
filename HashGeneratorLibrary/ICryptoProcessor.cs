@@ -52,6 +52,18 @@ namespace HashGeneratorLibrary
         Task<IEnumerable<CryptoData<T>>> CalculateHash<T>(IEnumerable<CryptoData<T>> dataCollection, bool useByteSeperator = false);
 
         /// <summary>
+        /// Calculates the hashes for each item in given collection of CryptoData objects and reports the progress.
+        /// </summary>
+        /// <typeparam name="T">T is byte[] or Stream.</typeparam>
+        /// <param name="dataCollection">Collection of CryptoData objects. T is byte[] or Stream.</param>
+        /// <param name="progress">Progress report to listen on status of completion.</param>
+        /// <param name="useByteSeperator">Whether to group the hash string by bytes with dashes.</param>
+        /// <returns>Update and return the collection of CryptoData with calculated hashes.</returns>
+        /// <exception cref="ArgumentNullException">Throws when CryptoData collection is not set.</exception>
+        /// <exception cref="NullReferenceException">Throws when Content of any CryptoData item in the collection is not set.</exception>
+        Task<IEnumerable<CryptoData<T>>> CalculateHash<T>(IEnumerable<CryptoData<T>> dataCollection, IProgress<int> progress, bool useByteSeperator = false);
+
+        /// <summary>
         /// Compare the stream data integrity against the given checksum.
         /// </summary>
         /// <param name="hash">Checksum string without group seperators.</param>

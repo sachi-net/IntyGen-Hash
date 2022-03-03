@@ -49,6 +49,7 @@ namespace IntyGenWinUI.UILayouts
             this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.chkSkipLargeFiles = new IntyGenWinUI.CustomControls.Toggle();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.pnlResult.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -257,11 +258,21 @@ namespace IntyGenWinUI.UILayouts
             this.chkSkipLargeFiles.TabIndex = 4;
             this.chkSkipLargeFiles.UseVisualStyleBackColor = true;
             // 
+            // progressBar
+            // 
+            this.progressBar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.progressBar.Location = new System.Drawing.Point(0, 530);
+            this.progressBar.MarqueeAnimationSpeed = 30;
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(800, 10);
+            this.progressBar.TabIndex = 23;
+            // 
             // MultiHashUILayout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 540);
+            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.pnlResult);
             this.Controls.Add(this.lblSeperatorPreview);
             this.Controls.Add(this.chkSkipLargeFiles);
@@ -310,5 +321,6 @@ namespace IntyGenWinUI.UILayouts
         private System.Windows.Forms.ListBox lstHashResult;
         private System.Windows.Forms.Label lblHashSummary;
         private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.ProgressBar progressBar;
     }
 }
