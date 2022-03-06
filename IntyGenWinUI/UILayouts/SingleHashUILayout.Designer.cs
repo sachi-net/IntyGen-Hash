@@ -46,6 +46,7 @@ namespace IntyGenWinUI.UILayouts
             this.label6 = new System.Windows.Forms.Label();
             this.btnGenerate = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.pnlResult.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -220,11 +221,21 @@ namespace IntyGenWinUI.UILayouts
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
+            // progressBar
+            // 
+            this.progressBar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.progressBar.Location = new System.Drawing.Point(0, 440);
+            this.progressBar.MarqueeAnimationSpeed = 10;
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(800, 10);
+            this.progressBar.TabIndex = 24;
+            // 
             // SingleHashUILayout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.pnlResult);
             this.Controls.Add(this.lblSeperatorPreview);
             this.Controls.Add(this.chkEnableSeperator);
@@ -268,5 +279,6 @@ namespace IntyGenWinUI.UILayouts
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnGenerate;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.ProgressBar progressBar;
     }
 }

@@ -67,6 +67,7 @@ namespace IntyGenWinUI.UILayouts
             {
                 MessageBox.Show(MessageTemplates.HASH_IS_EMPTY, _config["appTitle"], 
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtHash.Focus();
                 return false;
             }
             return true;
@@ -141,12 +142,14 @@ namespace IntyGenWinUI.UILayouts
 
             string selectedHashMethod = cmbHashType.SelectedItem.ToString();
             processor = HashProcessor.Initialize(selectedHashMethod);
+            progressBar.Style = ProgressBarStyle.Marquee;
             var hashMatch = await processor.Compare(txtHash.Text, File.OpenRead(file.FullName));
 
             StringBuilder text = new();
 
             if (hashMatch)
             {
+                progressBar.Style = ProgressBarStyle.Blocks;
                 text.Clear();
                 text.Append(MessageTemplates.FILE_VERIFIED)
                     .Append($"\r\nFile: {file.FullName}")
@@ -157,6 +160,7 @@ namespace IntyGenWinUI.UILayouts
             else
             {
                 var expected = await processor.CalculateHash(File.OpenRead(file.FullName), useByteSeperator: false);
+                progressBar.Style = ProgressBarStyle.Blocks;
                 text.Clear();
                 text.Append(MessageTemplates.FILE_NOT_VERIFIED)
                     .Append($"\r\nFile: {file.FullName}")
@@ -174,6 +178,7 @@ namespace IntyGenWinUI.UILayouts
             if (cmbHashType.Items.Count > 0)
                 cmbHashType.SelectedIndex = 0;
             ValidationMessage.Clear(lblValidationMessage);
+            progressBar.Style = ProgressBarStyle.Blocks;
         }
         #endregion
 
@@ -194,7 +199,7 @@ namespace IntyGenWinUI.UILayouts
             OpenFile();
         }
 
-        private async void btnGenerate_Click(object sender, EventArgs e)
+        private async void btnVerify_Click(object sender, EventArgs e)
         {
             await Generate();
         }

@@ -37,13 +37,14 @@ namespace IntyGenWinUI.UILayouts
             this.label3 = new System.Windows.Forms.Label();
             this.cmbHashType = new System.Windows.Forms.ComboBox();
             this.btnClear = new System.Windows.Forms.Button();
-            this.btnGenerate = new System.Windows.Forms.Button();
+            this.btnVerify = new System.Windows.Forms.Button();
             this.txtOpen = new System.Windows.Forms.Button();
             this.txtPath = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtHash = new System.Windows.Forms.TextBox();
             this.lblHash = new System.Windows.Forms.Label();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.pnlResult.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +54,7 @@ namespace IntyGenWinUI.UILayouts
             this.pnlResult.Controls.Add(this.label6);
             this.pnlResult.Location = new System.Drawing.Point(35, 237);
             this.pnlResult.Name = "pnlResult";
-            this.pnlResult.Size = new System.Drawing.Size(533, 150);
+            this.pnlResult.Size = new System.Drawing.Size(533, 172);
             this.pnlResult.TabIndex = 22;
             this.pnlResult.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlResult_Paint);
             // 
@@ -63,7 +64,7 @@ namespace IntyGenWinUI.UILayouts
             this.txtIntegrityResult.Multiline = true;
             this.txtIntegrityResult.Name = "txtIntegrityResult";
             this.txtIntegrityResult.ReadOnly = true;
-            this.txtIntegrityResult.Size = new System.Drawing.Size(488, 91);
+            this.txtIntegrityResult.Size = new System.Drawing.Size(488, 122);
             this.txtIntegrityResult.TabIndex = 6;
             // 
             // label6
@@ -123,15 +124,15 @@ namespace IntyGenWinUI.UILayouts
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // btnGenerate
+            // btnVerify
             // 
-            this.btnGenerate.Location = new System.Drawing.Point(35, 196);
-            this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Size = new System.Drawing.Size(75, 23);
-            this.btnGenerate.TabIndex = 13;
-            this.btnGenerate.Text = "Generate";
-            this.btnGenerate.UseVisualStyleBackColor = true;
-            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
+            this.btnVerify.Location = new System.Drawing.Point(35, 196);
+            this.btnVerify.Name = "btnVerify";
+            this.btnVerify.Size = new System.Drawing.Size(75, 23);
+            this.btnVerify.TabIndex = 13;
+            this.btnVerify.Text = "Verify";
+            this.btnVerify.UseVisualStyleBackColor = true;
+            this.btnVerify.Click += new System.EventHandler(this.btnVerify_Click);
             // 
             // txtOpen
             // 
@@ -189,11 +190,21 @@ namespace IntyGenWinUI.UILayouts
             this.lblHash.TabIndex = 17;
             this.lblHash.Text = "Hash Type";
             // 
+            // progressBar
+            // 
+            this.progressBar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.progressBar.Location = new System.Drawing.Point(0, 440);
+            this.progressBar.MarqueeAnimationSpeed = 10;
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(800, 10);
+            this.progressBar.TabIndex = 25;
+            // 
             // HashVerifyUILayout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.txtHash);
             this.Controls.Add(this.pnlResult);
             this.Controls.Add(this.lblValidationMessage);
@@ -202,7 +213,7 @@ namespace IntyGenWinUI.UILayouts
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cmbHashType);
             this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.btnGenerate);
+            this.Controls.Add(this.btnVerify);
             this.Controls.Add(this.txtOpen);
             this.Controls.Add(this.txtPath);
             this.Controls.Add(this.label2);
@@ -226,7 +237,7 @@ namespace IntyGenWinUI.UILayouts
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cmbHashType;
         private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Button btnGenerate;
+        private System.Windows.Forms.Button btnVerify;
         private System.Windows.Forms.Button txtOpen;
         private System.Windows.Forms.TextBox txtPath;
         private System.Windows.Forms.Label label2;
@@ -234,5 +245,6 @@ namespace IntyGenWinUI.UILayouts
         private System.Windows.Forms.TextBox txtHash;
         private System.Windows.Forms.Label lblHash;
         private System.Windows.Forms.TextBox txtIntegrityResult;
+        private System.Windows.Forms.ProgressBar progressBar;
     }
 }

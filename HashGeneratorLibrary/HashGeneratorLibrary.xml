@@ -49,6 +49,18 @@
             <exception cref="T:System.ArgumentNullException">Throws when CryptoData collection is not set.</exception>
             <exception cref="T:System.NullReferenceException">Throws when Content of any CryptoData item in the collection is not set.</exception>
         </member>
+        <member name="M:HashGeneratorLibrary.ICryptoProcessor.CalculateHash``1(System.Collections.Generic.IEnumerable{HashGeneratorLibrary.Models.CryptoData{``0}},System.IProgress{System.Int32},System.Boolean)">
+            <summary>
+            Calculates the hashes for each item in given collection of CryptoData objects and reports the progress.
+            </summary>
+            <typeparam name="T">T is byte[] or Stream.</typeparam>
+            <param name="dataCollection">Collection of CryptoData objects. T is byte[] or Stream.</param>
+            <param name="progress">Progress report to listen on status of completion.</param>
+            <param name="useByteSeperator">Whether to group the hash string by bytes with dashes.</param>
+            <returns>Update and return the collection of CryptoData with calculated hashes.</returns>
+            <exception cref="T:System.ArgumentNullException">Throws when CryptoData collection is not set.</exception>
+            <exception cref="T:System.NullReferenceException">Throws when Content of any CryptoData item in the collection is not set.</exception>
+        </member>
         <member name="M:HashGeneratorLibrary.ICryptoProcessor.Compare(System.String,System.IO.Stream)">
             <summary>
             Compare the stream data integrity against the given checksum.
@@ -107,6 +119,18 @@
             </summary>
             <typeparam name="T">T is byte[] or Stream.</typeparam>
             <param name="dataCollection">Collection of CryptoData objects. T is byte[] or Stream.</param>
+            <param name="useByteSeperator">Whether to group the hash string by bytes with dashes.</param>
+            <returns>Update and return the collection of CryptoData with calculated MD5 hashes.</returns>
+            <exception cref="T:System.ArgumentNullException">Throws when CryptoData collection is not set.</exception>
+            <exception cref="T:System.NullReferenceException">Throws when Content of any CryptoData item in the collection is not set.</exception>
+        </member>
+        <member name="M:HashGeneratorLibrary.MD5Processor.CalculateHash``1(System.Collections.Generic.IEnumerable{HashGeneratorLibrary.Models.CryptoData{``0}},System.IProgress{System.Int32},System.Boolean)">
+            <summary>
+            Calculates the MD5 hashes for each item in given collection of CryptoData objects and reports the progress.
+            </summary>
+            <typeparam name="T">T is byte[] or Stream.</typeparam>
+            <param name="dataCollection">Collection of CryptoData objects. T is byte[] or Stream.</param>
+            <param name="progress">Progress report to listen on status of completion.</param>
             <param name="useByteSeperator">Whether to group the hash string by bytes with dashes.</param>
             <returns>Update and return the collection of CryptoData with calculated MD5 hashes.</returns>
             <exception cref="T:System.ArgumentNullException">Throws when CryptoData collection is not set.</exception>
@@ -204,6 +228,18 @@
             <exception cref="T:System.ArgumentNullException">Throws when CryptoData collection is not set.</exception>
             <exception cref="T:System.NullReferenceException">Throws when Content of any CryptoData item in the collection is not set.</exception>
         </member>
+        <member name="M:HashGeneratorLibrary.SHA1Processor.CalculateHash``1(System.Collections.Generic.IEnumerable{HashGeneratorLibrary.Models.CryptoData{``0}},System.IProgress{System.Int32},System.Boolean)">
+            <summary>
+            Calculates the SHA1 hashes for each item in given collection of CryptoData objects and reports the progress.
+            </summary>
+            <typeparam name="T">T is byte[] or Stream.</typeparam>
+            <param name="dataCollection">Collection of CryptoData objects. T is byte[] or Stream.</param>
+            <param name="progress">Progress report to listen on status of completion.</param>
+            <param name="useByteSeperator">Whether to group the hash string by bytes with dashes.</param>
+            <returns>Update and return the collection of CryptoData with calculated SHA1 hashes.</returns>
+            <exception cref="T:System.ArgumentNullException">Throws when CryptoData collection is not set.</exception>
+            <exception cref="T:System.NullReferenceException">Throws when Content of any CryptoData item in the collection is not set.</exception>
+        </member>
         <member name="M:HashGeneratorLibrary.SHA1Processor.Compare(System.String,System.IO.Stream)">
             <summary>
             Compare the stream data integrity against the given SHA1 checksum.
@@ -262,6 +298,18 @@
             </summary>
             <typeparam name="T">T is byte[] or Stream.</typeparam>
             <param name="dataCollection">Collection of CryptoData objects. T is byte[] or Stream.</param>
+            <param name="useByteSeperator">Whether to group the hash string by bytes with dashes.</param>
+            <returns>Update and return the collection of CryptoData with calculated SHA256 hashes.</returns>
+            <exception cref="T:System.ArgumentNullException">Throws when CryptoData collection is not set.</exception>
+            <exception cref="T:System.NullReferenceException">Throws when Content of any CryptoData item in the collection is not set.</exception>
+        </member>
+        <member name="M:HashGeneratorLibrary.SHA256Processor.CalculateHash``1(System.Collections.Generic.IEnumerable{HashGeneratorLibrary.Models.CryptoData{``0}},System.IProgress{System.Int32},System.Boolean)">
+            <summary>
+            Calculates the SHA256 hashes for each item in given collection of CryptoData objects and reports the progress.
+            </summary>
+            <typeparam name="T">T is byte[] or Stream.</typeparam>
+            <param name="dataCollection">Collection of CryptoData objects. T is byte[] or Stream.</param>
+            <param name="progress">Progress report to listen on status of completion.</param>
             <param name="useByteSeperator">Whether to group the hash string by bytes with dashes.</param>
             <returns>Update and return the collection of CryptoData with calculated SHA256 hashes.</returns>
             <exception cref="T:System.ArgumentNullException">Throws when CryptoData collection is not set.</exception>
