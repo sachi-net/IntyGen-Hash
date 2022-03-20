@@ -50,6 +50,7 @@ namespace IntyGenWinUI.UILayouts
             this.label7 = new System.Windows.Forms.Label();
             this.chkSkipLargeFiles = new IntyGenWinUI.CustomControls.Toggle();
             this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.pnlResult.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -267,11 +268,22 @@ namespace IntyGenWinUI.UILayouts
             this.progressBar.Size = new System.Drawing.Size(800, 10);
             this.progressBar.TabIndex = 23;
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(198, 195);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 24;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // MultiHashUILayout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 540);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.pnlResult);
             this.Controls.Add(this.lblSeperatorPreview);
@@ -322,5 +334,6 @@ namespace IntyGenWinUI.UILayouts
         private System.Windows.Forms.Label lblHashSummary;
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.Button btnCancel;
     }
 }
