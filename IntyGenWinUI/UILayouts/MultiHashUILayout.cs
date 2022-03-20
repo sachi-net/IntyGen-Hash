@@ -10,6 +10,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -23,6 +24,7 @@ namespace IntyGenWinUI.UILayouts
         private ICryptoProcessor processor;
         private string lastProcessedHashType;
         private string lastHashedDirectory;
+        private CancellationTokenSource tokenSource = new();
         #endregion
 
         public MultiHashUILayout()
@@ -112,6 +114,9 @@ namespace IntyGenWinUI.UILayouts
 
         private async Task Generate()
         {
+            tokenSource.Dispose();
+            tokenSource = new();
+
             ClearResult();
             lstHashResult.DataSource = null;
             List<CryptoData<Stream>> fileData = new();
@@ -138,31 +143,45 @@ namespace IntyGenWinUI.UILayouts
                     progressBar.Style = ProgressBarStyle.Marquee;
                     progress = new();
                 }
-                processor = HashProcessor.Initialize(cmbHashType.SelectedItem.ToString());
-                var result = await processor.CalculateHash(fileData, progress, chkEnableSeperator.Checked);
 
-                if (progressBar.Style == ProgressBarStyle.Marquee)
+                try
                 {
-                    progressBar.Style = ProgressBarStyle.Blocks;
-                }
+                    btnCancel.Visible = true;
+                    processor = HashProcessor.Initialize(cmbHashType.SelectedItem.ToString());
+                    var result = await processor.CalculateHash(fileData, progress, tokenSource.Token, chkEnableSeperator.Checked);
 
-                foreach(var data in result)
+                    if (progressBar.Style == ProgressBarStyle.Marquee)
+                    {
+                        progressBar.Style = ProgressBarStyle.Blocks;
+                    }
+
+                    foreach (var data in result)
+                    {
+                        var line = $"{data.Hash} - {data.DataKey}";
+                        lstHashResult.Items.Add(line);
+                    }
+
+                    if (lstHashResult.Items.Count > 0)
+                    {
+                        btnExport.Visible = true;
+                    }
+
+                    lastProcessedHashType = cmbHashType.SelectedItem.ToString();
+                    lastHashedDirectory = files is not null && files.Count() > 0 ?
+                        files.ToList()[0].DirectoryName : "Path";
+
+                    var summary = $"{filesToBeHashed.Count()} of {files.Count()} file(s) processed";
+                    ValidationMessage.Show(lblHashSummary, summary, AlertType.Information);
+                }
+                catch (OperationCanceledException)
                 {
-                    var line = $"{data.Hash} - {data.DataKey}";
-                    lstHashResult.Items.Add(line);
+                    MessageBox.Show(MessageTemplates.OPERATION_CANCELLED, "System", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    progressBar.Value = 0;
                 }
-
-                if (lstHashResult.Items.Count > 0)
+                finally
                 {
-                    btnExport.Visible = true;
+                    btnCancel.Visible = false;
                 }
-
-                lastProcessedHashType = cmbHashType.SelectedItem.ToString();
-                lastHashedDirectory = files is not null && files.Count() > 0 ?
-                    files.ToList()[0].DirectoryName : "Path";
-
-                var summary = $"{filesToBeHashed.Count()} of {files.Count()} file(s) processed";
-                ValidationMessage.Show(lblHashSummary, summary, AlertType.Information);
             }
         }
 
@@ -170,6 +189,7 @@ namespace IntyGenWinUI.UILayouts
         {
             ClearFiles();
             ClearResult();
+            btnCancel.Visible = false;
             lstHashResult.Items.Clear();
             if (cmbHashType.Items.Count > 0)
                 cmbHashType.SelectedIndex = 0;
@@ -241,5 +261,10 @@ namespace IntyGenWinUI.UILayouts
             await ExportFile();
         }
         #endregion
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            tokenSource.Cancel();
+        }
     }
 }

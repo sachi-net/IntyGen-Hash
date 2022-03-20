@@ -24,6 +24,7 @@ namespace IntyGenWinUI.UIControllers.Validations
         public static string FILE_VERIFIED = "File integrity matches.";
         public static string FILE_NOT_VERIFIED = "File integrity does not match.";
         public static string RESULT_SAVED(string path) { return $"Result successfully saved to \"{path}\"."; }
+        public static string OPERATION_CANCELLED = "Hashing operation cancelled.";
 
         private static string RefineMaxFileSize()
         {
